@@ -20,6 +20,30 @@ const matilda = new Person(`Matilda`, 2017);
 const jack = new Person(`Jack`, 1975);
 console.log(matilda, jack);
 
-const jay = `Jay`;
+// const jay = `Jay`;
 console.log(levi instanceof Person);
-console.log(jay instanceof Person);
+// console.log(jay instanceof Person);
+
+
+// Prototypes
+console.log(Person.prototype);
+
+Person.prototype.calcAge = function() {
+    console.log(2037 - this.birthYear);
+}
+
+levi.calcAge();
+matilda.calcAge();
+
+console.log(levi.__proto__);
+console.log(levi.__proto__ === Person.prototype);
+console.log(Person.prototype.isPrototypeOf(levi));
+console.log(Person.prototype.isPrototypeOf(Person));
+console.log(levi);
+
+Person.prototype.species = `Homo Sapiens`;
+console.log(levi, matilda);
+console.log(levi.species);
+
+console.log(levi.hasOwnProperty(`firstName`));
+console.log(levi.hasOwnProperty(`species`));
